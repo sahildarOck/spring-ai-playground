@@ -2,5 +2,7 @@ spring:
   application:
     name: spring-ai-playground
   ai:
-    openai:
-      api-key: ${OPENAI_API_KEY}
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3
