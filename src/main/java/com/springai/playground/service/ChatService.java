@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class ChatService {
     private final ChatClient chatClient;
-    private List<Message> history;
+    private final List<Message> history;
 
     public ChatService(ChatClient.Builder builder) {
         this.chatClient = builder.build();
