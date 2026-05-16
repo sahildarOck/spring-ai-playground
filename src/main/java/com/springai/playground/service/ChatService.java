@@ -1,5 +1,6 @@
 package com.springai.playground.service;
 
+import com.springai.playground.dto.AIResponse;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.messages.AssistantMessage;
 import org.springframework.ai.chat.messages.Message;
@@ -21,13 +22,13 @@ public class ChatService {
 
     /**
      *
-     * @param message
+     * @param prompt
      * @return
      */
-    public String chat(String message) {
-        history.add(new UserMessage(message));
+    public AIResponse chat(String prompt) {
+        history.add(new UserMessage(prompt));
         var responseContent = chatClient.prompt().messages(history).call().content();
         history.add(new AssistantMessage(responseContent));
-        return responseContent;
+        return new AIResponse(responseContent);
     }
 }

@@ -1,5 +1,6 @@
 package com.springai.playground.controller;
 
+import com.springai.playground.dto.AIResponse;
 import com.springai.playground.dto.UserPrompt;
 import com.springai.playground.service.ChatService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,7 @@ public class ChatController {
     }
 
     @PostMapping
-    public String chat(@RequestBody UserPrompt userPrompt) {
+    public AIResponse chat(@RequestBody UserPrompt userPrompt) {
         return chatService.chat(userPrompt.prompt());
     }
 }
